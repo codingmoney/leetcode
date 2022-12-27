@@ -17,19 +17,22 @@ var maxArea = function(height) {
 //     }
     
 //     return maxWater;
+
+    //Optimal solution
     
-    let left=0, right=height.length-1
-    let maxWater = 0
-    while(left<right){
-        const length = Math.min(height[left],height[right])
-            const width = right-left
-            const area = length * width
+    let maxWater = 0, l=0, r=height.length-1
+    
+    while(l<r){
+        
+            const area = Math.min(height[l],height[r]) * (r-l)
             
             maxWater = Math.max(area, maxWater)
-        if(height[left]<height[right]){
-            left++
+        
+    
+        if(height[l]<height[r]){
+            l++
         }else{
-            right--
+            r--
         }
     }
     
@@ -52,5 +55,4 @@ var maxArea = function(height) {
     
     
     
-
 };
